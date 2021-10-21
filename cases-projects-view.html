@@ -2041,7 +2041,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>نص المذكرة</label>
-                                            <textarea class="form-control content" rows="5"></textarea>
+                                            <textarea class="form-control content2" rows="20"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -2110,7 +2110,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>نص المذكرة</label>
-                                            <textarea class="form-control content" rows="5"></textarea>
+                                            <textarea class="form-control content2" rows="20"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -2250,7 +2250,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>نص الخطاب </label>
-                                            <textarea id="mytextarea content" class="form-control content" rows="5"></textarea>
+                                            <textarea id="mytextarea content" class="form-control content" rows="20"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -2265,18 +2265,7 @@
                                             <input type="text" class="form-control" id="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="">الزميل المكلف</label>
-                                            <select class="custom-select">
-												<option>option 1</option>
-												<option>option 2</option>
-												<option>option 3</option>
-												<option>option 4</option>
-												<option>option 5</option>
-											</select>
-                                        </div>
-                                    </div>
+
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="">الحالة</label>
@@ -2319,7 +2308,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>نص الخطاب </label>
-                                            <textarea class="form-control content" rows="5"></textarea>
+                                            <textarea class="form-control content" rows="20"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -2334,18 +2323,7 @@
                                             <input type="text" class="form-control" id="">
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="">الزميل المكلف</label>
-                                            <select class="custom-select">
-												<option>option 1</option>
-												<option>option 2</option>
-												<option>option 3</option>
-												<option>option 4</option>
-												<option>option 5</option>
-											</select>
-                                        </div>
-                                    </div>
+
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="">الحالة</label>
@@ -3152,6 +3130,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <!-- ./wrapper -->
@@ -3203,8 +3182,58 @@
                 ],
 
                 menubar: false,
+                init_instance_callback: "insert_contents",
+                height: "480",
             });
         });
+        tinymce.init({
+            selector: 'textarea.content2',
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic forecolor backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat |forecolor backcolor',
+            statusbar: false,
+            plugins: [
+                'textcolor', 'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount '
+            ],
+
+            menubar: false,
+            init_instance_callback: "insert_contents3",
+            height: "480",
+        });
+
+        tinymce.init({
+            selector: 'textarea.content3',
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic forecolor backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat |forecolor backcolor',
+            statusbar: false,
+            plugins: [
+                'textcolor', 'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount '
+            ],
+
+            menubar: false,
+            init_instance_callback: "insert_contents3",
+            height: "480",
+        });
+
+
+        function insert_contents(inst) {
+            inst.setContent(
+                `  <p dir="rtl"><h1 style="text-align: center;">مذكرة جوابية</h1>
+            <p style="text-align: right;">
+                <b >/فضيلة </b> <p style="text-align: left;">سلمه الله</p>
+            </p>
+            <h3 style="text-align: center;">السلام عليكم و رحمة الله و بركاته</h3>
+            <p style="text-align: right;">
+                <b >:إشارة إلى الدعوى </b>
+            </p></p>`);
+        }
     </script>
 
 
