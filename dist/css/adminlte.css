@@ -52322,6 +52322,7 @@ a.text-muted:hover {
 }
 .watermarked {
   position: relative;
+  width:80%;
 }
 
 .watermarked:after {
